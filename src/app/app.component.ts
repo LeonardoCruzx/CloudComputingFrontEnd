@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
         this.getImages();
     }
 
-    private getImages(): void
+    public getImages(): void
     {
         this.myImageService.getAllImages().subscribe(
             success =>{

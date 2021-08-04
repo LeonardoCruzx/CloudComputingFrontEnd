@@ -1,13 +1,18 @@
 <div class="container-fluid" id="container">
-    <div class="row">
+    <div class="row my-5">
         <div class="col-12 col-sm-12 col-md-4"></div>
         <div class="col-12 col-sm-12 col-md-4 text-center">
-            <p>aa</p>
+        <button class="btn btn-primary" (click)="getImages()">Reload</button>
+        <input type="file" class="form-control-inline mx-2" (change)="onChange($event)">
+        <button class="btn btn-primary" (click)="uploadImage()">+</button>
         </div>
         <div class="col-12 col-sm-12 col-md-4"></div>
     </div>
     <div class="row mx-0 mx-sm-4" id="images">
-        <app-my-image-component class="col-12 col-sm-3 col-md-3 my-5 mx-0 mx-sm-1 text-center" *ngFor="let i of myImages" [myImage]=i id="image">
+        <app-my-image-component class="col-12 col-sm-3 col-md-3 my-5 mx-0 mx-sm-1 text-center" *ngFor="let i of myImages" 
+            [myImage]=i id="image"
+            (deleted)="onDeleteImage($event)"
+            >
 
         </app-my-image-component>
     </div>

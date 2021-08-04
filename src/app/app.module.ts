@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MyImageComponentComponent } from './components/my-image-component/my-image-component.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [AppComponent, MyImageComponentComponent],
     imports: [
         BrowserModule,
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -11,9 +11,11 @@ import { MyImageServiceService } from './services/my-image-service.service';
 export class AppComponent implements OnInit {
     title = 'cloud-computing';
 
+    myImages: MyImage[];
+
     file: File;
 
-    myImages: MyImage[];
+    tag: String;
 
     constructor(
         private myImageService: MyImageServiceService
@@ -24,9 +26,14 @@ export class AppComponent implements OnInit {
         this.getImages();
     }
 
-    onChange(event)
+    onFileChange(event): void
     {
         this.file = event.target.files[0];
+    }
+
+    onTextChange(event): void
+    {
+        this.tag = event.target.value;
     }
 
     public getImages(): void
@@ -38,7 +45,7 @@ export class AppComponent implements OnInit {
         )
     }
 
-    onDeleteImage(myImage: MyImage)
+    onDeleteImage(myImage: MyImage): void
     {
         this.myImages.splice(this.myImages.indexOf(myImage), 1);
     }
@@ -53,7 +60,7 @@ export class AppComponent implements OnInit {
         );
     }
 
-    public verifyEqual(myImage: MyImage): Boolean
+    private verifyEqual(myImage: MyImage): Boolean
     {
         for (let i = 0; i < this.myImages.length; i++)
         {
@@ -61,5 +68,14 @@ export class AppComponent implements OnInit {
                 return true;
         }
         return false;
+    }
+
+    public getCategorizedImages(): void
+    {
+        this.myImageService.getCategorizedImage(this.tag).subscribe(
+            success => {
+                this.myImages = success;
+            }
+        )
     }
 }

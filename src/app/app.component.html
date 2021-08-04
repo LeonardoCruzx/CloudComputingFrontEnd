@@ -2,17 +2,23 @@
     <div class="row my-5">
         <div class="col-12 col-sm-12 col-md-4"></div>
         <div class="col-12 col-sm-12 col-md-4 text-center">
-        <button class="btn btn-primary" (click)="getImages()">Reload</button>
-        <input type="file" class="form-control-inline mx-2" (change)="onChange($event)">
-        <button class="btn btn-primary" (click)="uploadImage()">+</button>
+
+            <div class="my-2">
+                <button class="btn btn-primary" (click)="getImages()">Recarregar</button>
+                <input type="file" class="form-control-inline mx-2" (change)="onFileChange($event)">
+                <button class="btn btn-primary" (click)="uploadImage()">+</button>
+            </div>
+            <div class="mt-2">
+                <input type="text" (change)="onTextChange($event)">
+                <button class="btn btn-primary mx-2" (click)="getCategorizedImages()">Pesquisar</button>
+            </div>
+            
         </div>
         <div class="col-12 col-sm-12 col-md-4"></div>
     </div>
     <div class="row mx-0 mx-sm-4" id="images">
-        <app-my-image-component class="col-12 col-sm-3 col-md-3 my-5 mx-0 mx-sm-1 text-center" *ngFor="let i of myImages" 
-            [myImage]=i id="image"
-            (deleted)="onDeleteImage($event)"
-            >
+        <app-my-image-component class="col-12 col-sm-12 col-md-3 col-lg-3 my-5 mx-0 mx-sm-1 text-center"
+            *ngFor="let i of myImages" [myImage]=i id="image" (deleted)="onDeleteImage($event)">
 
         </app-my-image-component>
     </div>

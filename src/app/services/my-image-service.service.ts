@@ -6,10 +6,11 @@ import { MyImage } from '../interfaces/myImage';
 
 import { v4 as uuidv4 } from 'uuid';
 
-const LIST_URL = environment.baseUrl + "get-all-imgs/Frontend/"
-const EFFECT_URL = environment.baseUrl + "get-img-with-effect/"
-const DELETE_URL = environment.baseUrl + "delete-img/"
-const UPLOAD_URL = environment.baseUrl + "upload-categorized-img/Frontend/"
+const LIST_URL = environment.baseUrl + "get-all-imgs/Frontend/";
+const EFFECT_URL = environment.baseUrl + "get-img-with-effect/";
+const DELETE_URL = environment.baseUrl + "delete-img/";
+const UPLOAD_URL = environment.baseUrl + "upload-categorized-img/Frontend/";
+const GET_CATEGORIZED_URL = environment.baseUrl + "get-categorized-img/";
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,10 @@ export class MyImageServiceService {
       const formData = new FormData();
       formData.append("img", file, file.name);
       return this.http.post<MyImage>(UPLOAD_URL + uuidv4() + "/", formData);
+  }
+
+  public getCategorizedImage(tag: String): Observable<MyImage[]>
+  {
+      return this.http.get<MyImage[]>(GET_CATEGORIZED_URL + "?tag=" + tag);
   }
 }

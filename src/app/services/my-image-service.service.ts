@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { MyImage } from '../interfaces/myImage';
 
-import { v4 as uuidv4 } from 'uuid';
-
 const LIST_URL = environment.baseUrl + "get-all-imgs/Frontend/";
 const EFFECT_URL = environment.baseUrl + "get-img-with-effect/";
 const DELETE_URL = environment.baseUrl + "delete-img/";
@@ -36,7 +34,7 @@ export class MyImageServiceService {
   public uploadImage(file: File): Observable<MyImage>{
       const formData = new FormData();
       formData.append("img", file, file.name);
-      return this.http.post<MyImage>(UPLOAD_URL + uuidv4() + "/", formData);
+      return this.http.post<MyImage>(UPLOAD_URL, formData);
   }
 
   public getCategorizedImage(tag: String): Observable<MyImage[]>

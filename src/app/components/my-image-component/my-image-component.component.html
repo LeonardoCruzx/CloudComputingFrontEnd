@@ -1,5 +1,6 @@
-<div>
+<div class="">
     <img src="{{myImage.url}}" alt="">
-    <p>size: {{myImage.size}}kb</p>
-    <a href="" class="btn btn-primary">aa</a>
+    <p>size: {{myImage.size}}kb | width: {{myImage.width}} | height: {{myImage.height}}</p>
+    <button class="btn btn-primary" (click)="getTransformedImage()">transformed image</button>
+    <img class="my-2" src="{{myImageTransformed}}" alt="">
 </div>

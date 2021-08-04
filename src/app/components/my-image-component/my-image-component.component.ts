@@ -11,11 +11,22 @@ export class MyImageComponentComponent implements OnInit {
 
     @Input('myImage') myImage: MyImage
 
+    myImageTransformed: String
+
     constructor(
         private myImageService: MyImageServiceService
     ) { }
 
     ngOnInit() {
+    }
+
+    public getTransformedImage(): void
+    {
+        this.myImageService.getImageWithEffect(this.myImage.public_id.split("/")[0], this.myImage.public_id.split("/")[1]).subscribe(
+            success => {
+                this.myImageTransformed = success;
+            }
+        );
     }
 
 

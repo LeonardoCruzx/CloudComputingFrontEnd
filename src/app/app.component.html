@@ -1,7 +1,14 @@
-<div>
-  <app-my-image-component *ngFor="let i of myImages"
-    [myImage]=i
-  >
-    
-  </app-my-image-component>
+<div class="container-fluid" id="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-4"></div>
+        <div class="col-12 col-sm-12 col-md-4 text-center">
+            <p>aa</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4"></div>
+    </div>
+    <div class="row mx-0 mx-sm-4" id="images">
+        <app-my-image-component class="col-12 col-sm-3 col-md-3 my-5 mx-0 mx-sm-1 text-center" *ngFor="let i of myImages" [myImage]=i id="image">
+
+        </app-my-image-component>
+    </div>
 </div>

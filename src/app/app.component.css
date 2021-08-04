@@ -1,0 +1,13 @@
+
+
+#images{
+    background-color: white;
+    outline: rgb(207, 207, 207) 5px solid;
+}
+
+#image
+{
+    box-shadow: 0 4px 4px 0 rgb(189, 189, 189);
+    padding: 10px;
+    
+}

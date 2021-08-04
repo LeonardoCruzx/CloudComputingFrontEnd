@@ -1,0 +1,10 @@
+<div class="" *ngIf="myImage">
+    
+    <img src="{{myImage.url}}" alt="">
+    <p>size: {{myImage.size}}kb | width: {{myImage.width}} | height: {{myImage.height}}</p>
+
+    <button class="btn btn-primary mx-1" (click)="getMyImageWithEffect()">Effect</button>
+    <button class="btn btn-danger mx-1" (click)="delete()">Delete</button>
+    
+    <img class="my-2" src="{{myImageWithEffect}}" alt="">
+</div>
